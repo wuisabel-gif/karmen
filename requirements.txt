@@ -1,0 +1,2 @@
+slangpy>=0.43
+numpy>=1.24

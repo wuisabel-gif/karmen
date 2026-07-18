@@ -1,0 +1,16 @@
+{
+  "name": "falcon",
+  "count": 1000000,
+  "rocket": {
+    "mass": 70,
+    "fuel": 180,
+    "thrust": 40000,
+    "burnTime": 20,
+    "Cd": 0.45,
+    "area": 0.11,
+    "launchAngle": 89,
+    "maxAccel": 635,
+    "chuteArea": 10.0,
+    "chuteFailProb": 0.04
+  }
+}

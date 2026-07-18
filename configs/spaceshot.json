@@ -1,0 +1,16 @@
+{
+  "name": "spaceshot",
+  "count": 1000000,
+  "rocket": {
+    "mass": 58,
+    "fuel": 120,
+    "thrust": 29000,
+    "burnTime": 17,
+    "Cd": 0.5,
+    "area": 0.09,
+    "launchAngle": 89,
+    "maxAccel": 555,
+    "chuteArea": 8.0,
+    "chuteFailProb": 0.05
+  }
+}

@@ -1,0 +1,23 @@
+====================================
+KARMAN SIMULATION REPORT  [spaceshot]
+====================================
+
+Simulations             20,000
+Successful              17,869
+Exploded                 1,192
+Chute failed               939
+
+Mean Apogee            120.7 km
+Median Apogee          123.6 km
+Highest                192.2 km
+Lowest                  17.6 km
+Std Dev                 33.0 km
+
+Mean Peak Speed       2218.9 m/s
+Mean Flight Time      1626.8 s
+Mean Landing Vel        11.9 m/s
+
+P(reach 100 km)         84.5 %
+P(explode)               6.0 %
+P(chute failure)         4.7 %
+====================================

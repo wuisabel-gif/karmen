@@ -1,0 +1,16 @@
+{
+  "name": "student",
+  "count": 1000000,
+  "rocket": {
+    "mass": 2.0,
+    "fuel": 0.5,
+    "thrust": 180,
+    "burnTime": 3.0,
+    "Cd": 0.6,
+    "area": 0.01,
+    "launchAngle": 87,
+    "maxAccel": 100,
+    "chuteArea": 1.2,
+    "chuteFailProb": 0.05
+  }
+}
