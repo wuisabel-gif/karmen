@@ -81,9 +81,13 @@ def summarize(r, count_requested):
         "max_apogee": float(apo.max()),
         "min_apogee": float(apo.min()),
         "std_apogee": float(apo.std()),
+        "p5_apogee": float(np.percentile(apo, 5)),
+        "p95_apogee": float(np.percentile(apo, 95)),
         "mean_maxV": float(r["maxVelocity"].mean()),
         "mean_flight": float(r["flightTime"].mean()),
         "mean_landing": float(r["landingVelocity"][ok].mean()) if ok.any() else 0.0,
+        "mean_downrange": float(r["downrange"].mean()),
+        "p95_downrange": float(np.percentile(r["downrange"], 95)),
         "p_100km": float((apo >= 100000).mean()),
         "p_explode": float((r["status"] == 1).mean()),
         "p_chute_fail": float((r["status"] == 2).mean()),
@@ -98,10 +102,12 @@ def write_outputs(r, s, name):
     k = min(len(r["apogee"]), 10000)
     sample = np.column_stack([
         np.arange(k), r["apogee"][:k], r["maxVelocity"][:k],
-        r["flightTime"][:k], r["landingVelocity"][:k], r["status"][:k]])
+        r["flightTime"][:k], r["landingVelocity"][:k], r["downrange"][:k],
+        r["status"][:k]])
     np.savetxt(OUT / "flights.csv", sample, fmt="%.2f",
                header="Rocket,Apogee_m,MaxVelocity_ms,FlightTime_s,"
-                      "LandingVelocity_ms,Status", delimiter=",", comments="")
+                      "LandingVelocity_ms,Downrange_m,Status",
+               delimiter=",", comments="")
 
     # histogram.csv — apogee distribution in 2 km bins
     apo_km = r["apogee"] / 1000.0
@@ -122,6 +128,8 @@ Chute failed      {s['chute_failed']:>12,}
 
 Mean Apogee       {s['mean_apogee']/1000:>10.1f} km
 Median Apogee     {s['median_apogee']/1000:>10.1f} km
+5th pct Apogee    {s['p5_apogee']/1000:>10.1f} km
+95th pct Apogee   {s['p95_apogee']/1000:>10.1f} km
 Highest           {s['max_apogee']/1000:>10.1f} km
 Lowest            {s['min_apogee']/1000:>10.1f} km
 Std Dev           {s['std_apogee']/1000:>10.1f} km
@@ -129,6 +137,9 @@ Std Dev           {s['std_apogee']/1000:>10.1f} km
 Mean Peak Speed   {s['mean_maxV']:>10.1f} m/s
 Mean Flight Time  {s['mean_flight']:>10.1f} s
 Mean Landing Vel  {s['mean_landing']:>10.1f} m/s
+
+Mean Downrange    {s['mean_downrange']/1000:>10.1f} km
+95th pct Downrange{s['p95_downrange']/1000:>10.1f} km
 
 P(reach 100 km)   {s['p_100km']*100:>10.1f} %
 P(explode)        {s['p_explode']*100:>10.1f} %

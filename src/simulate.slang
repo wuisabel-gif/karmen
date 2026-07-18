@@ -39,7 +39,12 @@ Result simulate(Rocket base, uint seed)
         float rvy = vy;
         float sp  = sqrt(rvx * rvx + rvy * rvy);
 
-        float cdA = r.Cd * r.area + (deployed && !chuteFails ? r.chuteArea : 0.0);
+        // transonic drag rise (borrowed from Cd-vs-Mach curves): body drag
+        // roughly doubles crossing Mach 1, then relaxes. Chute stays subsonic.
+        float mach = sp / 340.0;
+        float transonic = 1.0 + 0.7 * exp(-pow((mach - 1.0) / 0.35, 2.0));
+        float cdA = r.Cd * r.area * transonic
+                  + (deployed && !chuteFails ? r.chuteArea : 0.0);
         float drag = 0.5 * rho * cdA * sp * sp;
         float dragx = sp > 1e-4 ? -drag * rvx / sp : 0.0;
         float dragy = sp > 1e-4 ? -drag * rvy / sp : 0.0;
@@ -68,6 +73,7 @@ Result simulate(Rocket base, uint seed)
     res.maxVelocity     = maxV;
     res.flightTime      = t;
     res.landingVelocity = sqrt(vx * vx + vy * vy);
+    res.downrange       = abs(px);
     res.status          = exploded ? 1 : (chuteFails ? 2 : 0);
     return res;
 }

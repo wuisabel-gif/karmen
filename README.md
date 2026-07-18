@@ -60,10 +60,14 @@ python src/reference.py     # asserts a nominal spaceshot behaves sanely
 
 2D point mass (downrange × altitude). Semi-implicit Euler at 50 ms steps.
 Thrust along the launch axis during burn; drag against air-relative velocity
-(wind is horizontal); inverse-square gravity; exponential atmosphere. A rocket
-**explodes** if the motor g-load (thrust/mass) exceeds its airframe limit, and
-deploys a parachute at apogee — which fails to open with a per-rocket
-probability.
+(wind is horizontal) with a **transonic drag rise** near Mach 1; inverse-square
+gravity; exponential atmosphere. A rocket **explodes** if the motor g-load
+(thrust/mass) exceeds its airframe limit, and deploys a parachute at apogee —
+which fails to open with a per-rocket probability.
+
+The report gives full **dispersion statistics** — apogee percentiles (P5/P50/P95)
+and horizontal **landing dispersion** (mean and 95th-percentile downrange) — the
+standard outputs of a Monte Carlo trajectory study.
 
 The tunable knobs (`maxAccel`, `chuteFailProb`, motor scatter) live in the
 config files; adjust them to move the failure and 100-km-crossing rates.

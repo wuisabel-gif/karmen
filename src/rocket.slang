@@ -22,5 +22,6 @@ struct Result
     float maxVelocity;     // peak speed (m/s)
     float flightTime;      // s
     float landingVelocity; // impact speed (m/s)
+    float downrange;       // horizontal landing distance (m) — dispersion
     int   status;          // 0 = success, 1 = exploded, 2 = chute failed
 }

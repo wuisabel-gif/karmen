@@ -40,6 +40,7 @@ def run(base, n, seed=0, dt=0.05, max_steps=200000):
         base["mass"], base["burnTime"], base["area"], base["chuteArea"])
     ca, sa = np.cos(angle), np.sin(angle)
 
+    px = np.zeros(n)
     py = np.zeros(n)
     vx = 0.1 * ca
     vy = 0.1 * sa
@@ -57,7 +58,8 @@ def run(base, n, seed=0, dt=0.05, max_steps=200000):
         rho = _density(py)
         rvx = vx - _wind(py)
         sp = np.hypot(rvx, vy)
-        cdA = Cd * area + np.where(deployed & ~chute_fails, chuteA, 0.0)
+        transonic = 1.0 + 0.7 * np.exp(-((sp / 340.0 - 1.0) / 0.35) ** 2)
+        cdA = Cd * area * transonic + np.where(deployed & ~chute_fails, chuteA, 0.0)
         drag = 0.5 * rho * cdA * sp * sp
         inv = np.where(sp > 1e-4, drag / np.where(sp > 1e-4, sp, 1.0), 0.0)
         dragx = -inv * rvx
@@ -73,6 +75,7 @@ def run(base, n, seed=0, dt=0.05, max_steps=200000):
         upd = alive
         vx = np.where(upd, vx + ax * dt, vx)
         vy = np.where(upd, vy + ay * dt, vy)
+        px = np.where(upd, px + vx * dt, px)
         py = np.where(upd, py + vy * dt, py)
         t = np.where(upd, t + dt, t)
         apogee = np.where(upd, np.maximum(apogee, py), apogee)
@@ -89,6 +92,7 @@ def run(base, n, seed=0, dt=0.05, max_steps=200000):
         "maxVelocity": maxV,
         "flightTime": t,
         "landingVelocity": np.hypot(vx, vy),
+        "downrange": np.abs(px),
         "status": status,
     }
 
