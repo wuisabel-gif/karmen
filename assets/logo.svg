@@ -1,0 +1,48 @@
+<svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="lt ld">
+  <title id="lt">Kármán</title>
+  <desc id="ld">A fountain of a million rocket trajectories fanning out across the Kármán line.</desc>
+  <defs>
+    <linearGradient id="cool" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.55" stop-color="#3b82f6"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="warm" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#ef4444"/></linearGradient>
+    <radialGradient id="pad" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#e2e8f0"/><stop offset="1" stop-color="#e2e8f0" stop-opacity="0"/></radialGradient>
+  </defs>
+  <g>
+    <line x1="16" y1="74" x2="232" y2="74" stroke="#64748b" stroke-width="1.2" stroke-dasharray="2 6" opacity="0.7"/>
+    <text x="230" y="67" text-anchor="end" font-family="ui-monospace,monospace" font-size="9" fill="#64748b" letter-spacing="1">100 km · KÁRMÁN LINE</text>
+    <path d="M120,212 Q81.0,68.0 26.0,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q86.2,31.5 36.4,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q108.6,120.0 89.2,212" fill="none" stroke="url(#warm)" stroke-width="2.0" stroke-linecap="round" opacity="0.85"/>
+    <path d="M120,212 Q96.6,-29.9 57.2,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q113.2,112.0 98.4,212" fill="none" stroke="url(#warm)" stroke-width="2.0" stroke-linecap="round" opacity="0.85"/>
+    <path d="M120,212 Q107.0,-76.0 78.0,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q112.2,-93.3 88.4,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q117.4,-106.7 98.8,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q122.6,-116.3 109.2,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q127.8,-122.1 119.6,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q133.0,-124.0 130.0,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q138.2,-122.1 140.4,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q143.4,-116.3 150.8,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q148.6,-106.7 161.2,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q153.8,-93.3 171.6,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q159.0,-76.0 182.0,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q164.2,-54.9 192.4,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q143.1,116.0 158.2,212" fill="none" stroke="url(#warm)" stroke-width="2.0" stroke-linecap="round" opacity="0.85"/>
+    <path d="M120,212 Q174.6,-1.1 213.2,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q179.8,31.5 223.6,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M120,212 Q185.0,68.0 234.0,212" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="112.2" cy="59.4" r="2.1" fill="#a78bfa"/>
+    <circle cx="117.4" cy="52.6" r="2.1" fill="#a78bfa"/>
+    <circle cx="122.6" cy="47.8" r="2.1" fill="#a78bfa"/>
+    <circle cx="127.8" cy="45.0" r="2.1" fill="#a78bfa"/>
+    <circle cx="133.0" cy="44.0" r="2.1" fill="#a78bfa"/>
+    <circle cx="138.2" cy="45.0" r="2.1" fill="#a78bfa"/>
+    <circle cx="143.4" cy="47.8" r="2.1" fill="#a78bfa"/>
+    <circle cx="148.6" cy="52.6" r="2.1" fill="#a78bfa"/>
+    <circle cx="153.8" cy="59.4" r="2.1" fill="#a78bfa"/>
+    <circle cx="120" cy="212" r="14" fill="url(#pad)"/><circle cx="120" cy="212" r="3.2" fill="#f8fafc"/>
+  </g>
+  <g>
+    <text x="290" y="132" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="70" letter-spacing="2" fill="#1e293b">KÁRMÁN</text>
+    <text x="292" y="162" font-family="ui-monospace,monospace" font-size="13.5" letter-spacing="5.5" fill="#64748b">ONE MILLION LAUNCHES · GPU</text>
+  </g>
+</svg>

@@ -1,4 +1,9 @@
-# Kármán
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.svg">
+    <img src="assets/logo.svg" alt="Kármán" width="620">
+  </picture>
+</p>
 
 Simulate **1,000,000 rocket launches in parallel** on the GPU using
 [Slang](https://shader-slang.org/). Every GPU thread flies one rocket — its own

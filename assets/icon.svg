@@ -1,0 +1,47 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="it id">
+  <title id="it">Kármán</title>
+  <desc id="id">A fountain of rocket trajectories crossing the Kármán line.</desc>
+  <defs>
+    <linearGradient id="cool" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/><stop offset="0.55" stop-color="#3b82f6"/><stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+    <radialGradient id="pad" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#e2e8f0"/><stop offset="1" stop-color="#e2e8f0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <line x1="18" y1="86" x2="238" y2="86" stroke="#64748b" stroke-width="1.4" stroke-dasharray="2 7" opacity="0.7"/>
+  <path d="M128,224 Q81.0,84.0 18.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q87.0,42.2 30.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q93.0,4.8 42.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q116.1,140.0 96.2,224" fill="none" stroke="url(#warm)" stroke-width="2.0" stroke-linecap="round" opacity="0.85"/>
+    <path d="M128,224 Q105.0,-56.8 66.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q121.5,132.0 107.0,224" fill="none" stroke="url(#warm)" stroke-width="2.0" stroke-linecap="round" opacity="0.85"/>
+    <path d="M128,224 Q117.0,-100.8 90.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q123.0,-116.2 102.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q129.0,-127.2 114.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q135.0,-133.8 126.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q141.0,-136.0 138.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q147.0,-133.8 150.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q153.0,-127.2 162.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q159.0,-116.2 174.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q165.0,-100.8 186.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q171.0,-81.0 198.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q177.0,-56.8 210.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q153.9,140.0 171.8,224" fill="none" stroke="url(#warm)" stroke-width="2.0" stroke-linecap="round" opacity="0.85"/>
+    <path d="M128,224 Q189.0,4.8 234.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q195.0,42.2 246.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M128,224 Q201.0,84.0 258.0,224" fill="none" stroke="url(#cool)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="117.0" cy="61.6" r="1.9" fill="#a78bfa"/>
+    <circle cx="123.0" cy="53.9" r="1.9" fill="#a78bfa"/>
+    <circle cx="129.0" cy="48.4" r="1.9" fill="#a78bfa"/>
+    <circle cx="135.0" cy="45.1" r="1.9" fill="#a78bfa"/>
+    <circle cx="141.0" cy="44.0" r="1.9" fill="#a78bfa"/>
+    <circle cx="147.0" cy="45.1" r="1.9" fill="#a78bfa"/>
+    <circle cx="153.0" cy="48.4" r="1.9" fill="#a78bfa"/>
+    <circle cx="159.0" cy="53.9" r="1.9" fill="#a78bfa"/>
+    <circle cx="165.0" cy="61.6" r="1.9" fill="#a78bfa"/>
+  <circle cx="128" cy="224" r="16" fill="url(#pad)"/><circle cx="128" cy="224" r="3.6" fill="#f8fafc"/>
+</svg>
