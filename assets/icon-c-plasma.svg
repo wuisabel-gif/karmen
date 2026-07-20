@@ -1,0 +1,32 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t d">
+  <title id="t">Kármán</title><desc id="d">Trajectory fan — plasma ramp.</desc>
+  <defs>
+  <linearGradient id="cool" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.55" stop-color="#3b82f6"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+  <linearGradient id="plasma" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#6366f1"/><stop offset="0.5" stop-color="#d946ef"/><stop offset="1" stop-color="#fbbf24"/></linearGradient>
+  <linearGradient id="warm" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#ef4444"/></linearGradient>
+  <radialGradient id="pad" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#e2e8f0"/><stop offset="1" stop-color="#e2e8f0" stop-opacity="0"/></radialGradient>
+</defs>
+  <line x1="18" y1="86" x2="238" y2="86" stroke="#64748b" stroke-width="1.4" stroke-dasharray="2 7" opacity="0.65"/>
+  <path d="M128,224 Q82.0,92.0 20.0,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q87.9,49.4 31.8,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q115.0,105.6 94.0,224" fill="none" stroke="url(#warm)" stroke-width="1.9" stroke-linecap="round" opacity="0.85"/>
+  <path d="M128,224 Q99.7,-22.2 55.4,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q120.0,99.2 104.0,224" fill="none" stroke="url(#warm)" stroke-width="1.9" stroke-linecap="round" opacity="0.85"/>
+  <path d="M128,224 Q111.5,-76.0 79.0,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q117.4,-96.2 90.8,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q123.3,-111.8 102.6,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q129.2,-123.0 114.4,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q135.1,-129.8 126.2,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q141.0,-132.0 138.0,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q146.9,-129.8 149.8,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q152.8,-123.0 161.6,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q158.7,-111.8 173.4,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q164.6,-96.2 185.2,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q170.5,-76.0 197.0,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q176.4,-51.4 208.8,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q152.5,102.4 169.0,224" fill="none" stroke="url(#warm)" stroke-width="1.9" stroke-linecap="round" opacity="0.85"/>
+  <path d="M128,224 Q188.2,11.4 232.4,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q194.1,49.4 244.2,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q200.0,92.0 256.0,224" fill="none" stroke="url(#plasma)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="128" cy="224" r="15" fill="url(#pad)"/><circle cx="128" cy="224" r="3.4" fill="#f8fafc"/>
+</svg>

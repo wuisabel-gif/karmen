@@ -1,0 +1,24 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t d">
+  <title id="t">Kármán</title><desc id="d">Trajectory fan — minimal bold.</desc>
+  <defs>
+  <linearGradient id="cool" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.55" stop-color="#3b82f6"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+  <linearGradient id="plasma" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#6366f1"/><stop offset="0.5" stop-color="#d946ef"/><stop offset="1" stop-color="#fbbf24"/></linearGradient>
+  <linearGradient id="warm" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#ef4444"/></linearGradient>
+  <radialGradient id="pad" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#e2e8f0"/><stop offset="1" stop-color="#e2e8f0" stop-opacity="0"/></radialGradient>
+</defs>
+  <line x1="18" y1="86" x2="238" y2="86" stroke="#64748b" stroke-width="1.4" stroke-dasharray="2 7" opacity="0.65"/>
+  <path d="M128,224 Q89.0,68.0 34.0,224" fill="none" stroke="url(#cool)" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q97.7,6.9 51.3,224" fill="none" stroke="url(#cool)" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q106.3,-43.1 68.7,224" fill="none" stroke="url(#cool)" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q115.0,-82.0 86.0,224" fill="none" stroke="url(#cool)" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q123.7,-109.8 103.3,224" fill="none" stroke="url(#cool)" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q132.3,-126.4 120.7,224" fill="none" stroke="url(#cool)" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q135.0,80.0 134.0,224" fill="none" stroke="url(#warm)" stroke-width="2.8" stroke-linecap="round" opacity="0.85"/>
+  <path d="M128,224 Q149.7,-126.4 155.3,224" fill="none" stroke="url(#cool)" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q158.3,-109.8 172.7,224" fill="none" stroke="url(#cool)" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q167.0,-82.0 190.0,224" fill="none" stroke="url(#cool)" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q175.7,-43.1 207.3,224" fill="none" stroke="url(#cool)" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q184.3,6.9 224.7,224" fill="none" stroke="url(#cool)" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+  <path d="M128,224 Q193.0,68.0 242.0,224" fill="none" stroke="url(#cool)" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="128" cy="224" r="15" fill="url(#pad)"/><circle cx="128" cy="224" r="3.4" fill="#f8fafc"/>
+</svg>
