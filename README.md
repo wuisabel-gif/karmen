@@ -17,6 +17,27 @@ GPU Thread 1        Rocket #1
 GPU Thread 999999   Rocket #999999
 ```
 
+## Why — dispersion analysis
+
+A rocket never flies exactly as designed: motor thrust varies batch to batch,
+fuel load and drag differ, wind shifts, and the launch angle is a hair off. Any
+one simulation tells you what happens for *one* set of those values. Kármán runs
+a million slightly-different rockets — a **Monte Carlo** sweep — and answers the
+questions that actually matter for a launch:
+
+- **Will it reach the target?** — e.g. *"84% of flights cross the 100 km Kármán line."*
+- **How far will it land?** — downrange landing scatter (mean and 95th percentile), which sizes the recovery / safety zone.
+- **How risky is it?** — probability of structural failure (g-load) and of parachute failure.
+- **What's the spread?** — apogee percentiles (P5 / P50 / P95), not just an average.
+
+This is the standard dispersion analysis that flight-dynamics tools run for
+launch safety and hardware sizing; see Ceotto et al., *RocketPy: Six
+Degree-of-Freedom Rocket Trajectory Simulator*, Journal of Aerospace Engineering
+34(6), 2021, [doi:10.1061/(ASCE)AS.1943-5525.0001331](https://ascelibrary.org/doi/10.1061/%28ASCE%29AS.1943-5525.0001331).
+Kármán's angle is doing it *massively in parallel* — a million trajectories at
+once — by treating a graphics shader language (Slang) as a scientific compute
+engine.
+
 ## Run
 
 ```bash
