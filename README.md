@@ -5,6 +5,12 @@
   </picture>
 </p>
 
+<p align="center">
+  <strong><a href="https://wuisabel-gif.github.io/karmen/">Live site</a></strong> ·
+  <a href="#why--dispersion-analysis">Dispersion analysis</a> ·
+  <a href="#run">Run it</a>
+</p>
+
 Simulate **1,000,000 rocket launches in parallel** on the GPU using
 [Slang](https://shader-slang.org/). Every GPU thread flies one rocket — its own
 motor scatter, fuel, drag, wind, launch angle — and integrates the full
@@ -33,7 +39,10 @@ questions that actually matter for a launch:
 This is the standard dispersion analysis that flight-dynamics tools run for
 launch safety and hardware sizing; see Ceotto et al., *RocketPy: Six
 Degree-of-Freedom Rocket Trajectory Simulator*, Journal of Aerospace Engineering
-34(6), 2021, [doi:10.1061/(ASCE)AS.1943-5525.0001331](https://ascelibrary.org/doi/10.1061/%28ASCE%29AS.1943-5525.0001331).
+34(6), 2021, [doi:10.1061/(ASCE)AS.1943-5525.0001331](https://ascelibrary.org/doi/10.1061/%28ASCE%29AS.1943-5525.0001331),
+and Miedziński, Głębocki & Jacewicz, *Analysis of Sounding Rocket Dispersion
+Using Monte-Carlo Simulation* (Springer, 2023),
+[doi:10.1007/978-3-031-25844-2_4](https://link.springer.com/chapter/10.1007/978-3-031-25844-2_4).
 Kármán's angle is doing it *massively in parallel* — a million trajectories at
 once — by treating a graphics shader language (Slang) as a scientific compute
 engine.
