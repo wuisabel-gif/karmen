@@ -3,26 +3,35 @@ KARMAN SIMULATION REPORT  [spaceshot]
 ====================================
 
 Simulations             20,000
-Successful              17,869
-Exploded                 1,192
-Chute failed               939
+Successful              18,983
+Exploded                     0
+Chute failed             1,017
 
-Mean Apogee            117.9 km
-Median Apogee          120.7 km
-5th pct Apogee          19.1 km
-95th pct Apogee        161.5 km
-Highest                188.6 km
-Lowest                  17.5 km
-Std Dev                 32.4 km
+Mean Apogee             92.3 km
+Median Apogee           91.1 km
+5th pct Apogee          69.3 km
+95th pct Apogee        120.0 km
+Highest                138.2 km
+Lowest                  61.5 km
+Std Dev                 15.4 km
 
-Mean Peak Speed       2206.2 m/s
-Mean Flight Time      1622.9 s
+Mean Peak Speed       1910.3 m/s
+Mean Flight Time      1668.3 s
 Mean Landing Vel        11.9 m/s
 
-Mean Downrange           9.0 km
-95th pct Downrange      21.2 km
+Mean Downrange           6.8 km
+95th pct Downrange      15.2 km
 
-P(reach 100 km)         81.3 %
-P(explode)               6.0 %
-P(chute failure)         4.7 %
+P(reach 100 km)         29.8 %
+P(explode)               0.0 %
+P(chute failure)         5.1 %
+
+WHAT DRIVES THE SPREAD (first-order variance share)
+  apogee:
+    drag      65.4 %
+    motor     34.2 %
+  downrange:
+    angle     89.5 %
+    drag       7.1 %
+    motor      3.3 %
 ====================================

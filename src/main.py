@@ -1,15 +1,18 @@
 """Kármán — simulate a million rocket launches in parallel.
 
 Usage:
-    python src/main.py [config] [--count N] [--engine auto|gpu|cpu]
+    python src/main.py [config] [--count N] [--engine auto|gpu|cpu] [--motor F.eng]
 
     config   name under configs/ (default: spaceshot)
     --count  override number of rockets
     --engine auto (default) tries the GPU Slang kernel, falls back to the
              numpy engine if no GPU/Slang toolchain is available.
+    --motor  a real RASP .eng thrust curve (thrustcurve.org); uses the CPU
+             engine and the motor's actual impulse instead of constant thrust.
 
 The GPU does the expensive part — a million full trajectory integrations.
 The summary statistics over a million floats are trivial, so numpy does those.
+The report also breaks down which input uncertainties drive the dispersion.
 """
 import argparse
 import json
@@ -51,18 +54,38 @@ def gpu_run(base, n):
     raise RuntimeError(last or "no GPU backend available")
 
 
-def cpu_run(base, n):
+def cpu_run(base, n, motor=None):
     import reference
     # ponytail: the numpy engine marches all rockets in lockstep, so cost is
     # O(n * steps). Cap n and coarsen dt so the fallback finishes in seconds
     # instead of minutes. The GPU path runs the full count at full resolution.
     capped = min(n, 20000)
     if capped < n:
-        print(f"engine: CPU fallback (numpy) — reduced {n:,} -> {capped:,} "
+        print(f"engine: CPU (numpy) — reduced {n:,} -> {capped:,} "
               f"rockets, dt=0.2 for tractability")
     else:
-        print("engine: CPU fallback (numpy)")
-    return reference.run(base, capped, seed=0, dt=0.2)
+        print("engine: CPU (numpy)")
+    return reference.run(base, capped, seed=0, dt=0.2, motor=motor)
+
+
+def sensitivity(r):
+    """First-order variance shares: how much of the spread in apogee and in
+    landing distance each input uncertainty explains (normalized r^2). Assumes
+    roughly independent inputs — a screening tool for design, not exact Sobol
+    indices. Answers 'tighten which tolerance to shrink the dispersion?'."""
+    out = {}
+    for label, mask, key in [("apogee", r["status"] == 0, "apogee"),
+                             ("downrange", r["status"] != 1, "downrange")]:
+        y = r[key][mask]
+        shares = {}
+        for name, x in r["inputs"].items():
+            xm = x[mask]
+            shares[name] = (0.0 if xm.std() < 1e-12 or y.std() < 1e-12
+                            else np.corrcoef(xm, y)[0, 1] ** 2)
+        tot = sum(shares.values()) or 1.0
+        out[label] = dict(sorted(((k, 100 * v / tot) for k, v in shares.items()),
+                                 key=lambda kv: -kv[1]))
+    return out
 
 
 def summarize(r, count_requested):
@@ -144,8 +167,16 @@ Mean Downrange    {s['mean_downrange']/1000:>10.1f} km
 P(reach 100 km)   {s['p_100km']*100:>10.1f} %
 P(explode)        {s['p_explode']*100:>10.1f} %
 P(chute failure)  {s['p_chute_fail']*100:>10.1f} %
-====================================
 """
+    if "inputs" in r:
+        sens = sensitivity(r)
+        report += "\nWHAT DRIVES THE SPREAD (first-order variance share)\n"
+        for label in ("apogee", "downrange"):
+            report += f"  {label}:\n"
+            for name, pct in sens[label].items():
+                if pct >= 0.5:
+                    report += f"    {name:<8}{pct:>6.1f} %\n"
+    report += "====================================\n"
     (OUT / "report.txt").write_text(report)
     print(report)
 
@@ -155,14 +186,28 @@ def main():
     ap.add_argument("config", nargs="?", default="spaceshot")
     ap.add_argument("--count", type=int, default=None)
     ap.add_argument("--engine", choices=["auto", "gpu", "cpu"], default="auto")
+    ap.add_argument("--motor", default=None,
+                    help="RASP .eng thrust curve (uses the CPU engine)")
     a = ap.parse_args()
 
     cfg = json.loads((ROOT / "configs" / f"{a.config}.json").read_text())
     base = cfg["rocket"]
     n = a.count or cfg.get("count", 1_000_000)
 
+    motor = None
+    motor_path = a.motor or cfg.get("motor")
+    if motor_path:
+        import motor as motorlib
+        p = pathlib.Path(motor_path)
+        motor = motorlib.load_eng(str(p if p.is_absolute() else ROOT / p))
+        print("motor:", motorlib.summary(motor))
+
     t0 = time.time()
-    if a.engine == "cpu":
+    if motor is not None:
+        if a.engine == "gpu":
+            print("[note] --motor thrust curves run on the CPU engine")
+        r = cpu_run(base, n, motor)
+    elif a.engine == "cpu":
         r = cpu_run(base, n)
     elif a.engine == "gpu":
         r = gpu_run(base, n)

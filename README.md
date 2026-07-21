@@ -59,6 +59,54 @@ python src/main.py student --engine cpu
 Outputs land in `output/`: `report.txt`, `flights.csv` (per-rocket sample),
 `histogram.csv` (apogee distribution).
 
+## Real motors
+
+Instead of a made-up constant thrust, feed a real motor's **RASP `.eng`**
+thrust curve — the universal format used by OpenRocket, RockSim and
+[thrustcurve.org](https://www.thrustcurve.org/), where thousands of real
+AeroTech / Cesaroni / Estes motors are free to download:
+
+```bash
+python src/main.py spaceshot --motor motors/YourMotor.eng
+```
+
+Thrust and mass then follow the motor's actual impulse curve. (`motors/demo.eng`
+is a **synthetic** placeholder so the pipeline runs out of the box — swap in a
+real file.)
+
+## What drives the spread
+
+The report ends with a **sensitivity breakdown** — a first-order variance share
+of how much each input uncertainty drives the dispersion. It turns a million
+runs into a design decision:
+
+```
+WHAT DRIVES THE SPREAD (first-order variance share)
+  apogee:      drag 63 %   motor 37 %      → control finish/Cd before motor lot
+  downrange:   angle 90 %  drag 7 %        → landing scatter is all launch angle
+```
+
+## Validation
+
+The physics is checked against closed-form answers, so the numbers can be
+trusted rather than eyeballed — run the engine directly:
+
+```bash
+python src/reference.py     # ballistic apogee & terminal velocity vs analytic
+```
+
+Both match to <0.1 %.
+
+## Scope & limitations
+
+Kármán is a fast **screening / what-if** tool, not a certified range-safety
+model. It's a **2-D point-mass** simulation (no pitch/yaw/roll, no weathercocking
+or thrust misalignment) with a simplified wind profile and an empirical g-load
+failure model. Absolute apogees depend on your inputs; the *relative* answers —
+which tolerance dominates the spread, how the distribution shifts when you change
+a parameter — are robust and are what it's for. For flight-qualified 6-DOF
+analysis, use [RocketPy](https://github.com/RocketPy-Team/RocketPy) or OpenRocket.
+
 ## GPU vs CPU
 
 `--engine auto` (default) runs the Slang kernel on the first available GPU
@@ -87,9 +135,11 @@ python src/reference.py     # asserts a nominal spaceshot behaves sanely
 | `src/wind.slang` | altitude-dependent horizontal wind |
 | `src/montecarlo.slang` | per-rocket parameter scatter |
 | `src/random.slang` | per-thread PCG RNG |
-| `src/main.py` | load config → dispatch → statistics → report |
-| `src/reference.py` | numpy mirror: correctness oracle + CPU fallback |
+| `src/main.py` | load config → dispatch → statistics + sensitivity → report |
+| `src/reference.py` | numpy engine: real answers, CPU fallback, analytic validation |
+| `src/motor.py` | RASP `.eng` thrust-curve parser |
 | `configs/*.json` | nominal rocket definitions |
+| `motors/*.eng` | motor thrust curves (drop real ones from thrustcurve.org) |
 
 ## Physics
 

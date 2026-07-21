@@ -1,0 +1,14 @@
+; Demo-O30000 — SYNTHETIC illustrative thrust curve, NOT a real product.
+; Provided only so the .eng pipeline runs out of the box.
+; Download real motors (AeroTech, Cesaroni, Estes, ...) free from:
+;   https://www.thrustcurve.org/   (export as RASP .eng)
+; header:  name  dia_mm  len_mm  delays  prop_kg  total_kg  manufacturer
+Demo-O30000 200 2000 P 120 178 KARMAN
+   0.15 20000
+   0.50 32000
+   2.00 31000
+   8.00 30000
+  14.00 29000
+  15.50 22000
+  16.50  9000
+  17.00     0
